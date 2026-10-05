@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mis Equipos">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Mis Equipos</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f8;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:#111827;color:white;padding:calc(22px + env(safe-area-inset-top)) 18px 16px;border-radius:0 0 24px 24px}
+h1{margin:4px 0;font-size:29px}.sub{opacity:.72}.tabs{display:flex;gap:8px;margin-top:16px}.tab{border:0;border-radius:999px;padding:10px 14px;font-weight:800;background:#273244;color:#dbe2ea}.tab.active{background:white;color:#111827}
+main{padding:16px}.card{background:white;border:1px solid #e5e7eb;border-radius:18px;padding:17px;margin-bottom:13px;box-shadow:0 2px 12px #00000008}.label{font-size:11px;font-weight:900;letter-spacing:.09em;color:#667085;text-transform:uppercase}.match{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0}.team{width:36%;font-weight:800}.away{text-align:right}.score{font-size:36px;font-weight:950}.date,.small{color:#667085;font-size:13px}.next{font-size:23px;font-weight:900;margin:7px 0}.row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #edf0f3}.row:last-child{border:0}.btn{display:block;text-align:center;text-decoration:none;background:#111827;color:white;padding:12px;border-radius:12px;font-weight:800;margin-top:10px}.panel{display:none}.panel.active{display:block}.ok{color:#16834b;font-weight:900}
+</style>
+</head>
+<body>
+<header>
+<div style="font-size:12px;letter-spacing:.12em;opacity:.65;text-transform:uppercase">Mi marcador</div>
+<h1>Mis Equipos</h1><div class="sub">Vigo Rugby M18 · Deportivo Juvenil A</div>
+<div class="tabs"><button class="tab active" onclick="show('depor',this)">⚽ Dépor</button><button class="tab" onclick="show('vigo',this)">🏉 Vigo M18</button></div>
+</header>
+<main>
+<section id="depor" class="panel active">
+<div class="card"><div class="label">Último resultado · J4</div><div class="match"><div class="team">Deportivo</div><div class="score">2–0</div><div class="team away">Real Avilés</div></div><div class="date">3 octubre 2026</div><p class="ok">VICTORIA</p></div>
+<div class="card"><div class="label">Goleadores</div><div class="row"><b>Miguel de Labra</b><span>2 goles</span></div></div>
+<div class="card"><div class="label">Próximo partido</div><div class="next">Racing de Santander</div><div class="small">Consulta RFEF para fecha y hora actualizadas.</div><a class="btn" href="https://rfef.es/es/competiciones/division-de-honor-juvenil">Calendario RFEF</a></div>
+<div class="card"><div class="label">Clasificación</div><div class="small">Consulta oficial para mantener la posición siempre actualizada.</div><a class="btn" href="https://rfef.es/es/competiciones/division-de-honor-juvenil">Abrir clasificación</a></div>
+</section>
+<section id="vigo" class="panel">
+<div class="card"><div class="label">Liga Galega Rugby M18 · 2026/27</div><div class="match"><div class="team">Vigo R.C.</div><div class="score">M18</div><div class="team away">FGR</div></div><div class="date">Federación Galega de Rugby</div></div>
+<div class="card"><div class="label">Último resultado</div><p class="small">Pendiente de marcador fiable en la fuente oficial.</p><a class="btn" href="https://rugby.gal/lgr-m-18/">Ver resultados FGR</a></div>
+<div class="card"><div class="label">Anotadores</div><p class="small">Pendiente de acta oficial. No se inventan jugadores ni puntos.</p></div>
+<div class="card"><div class="label">Clasificación y calendario</div><a class="btn" href="https://rugby.gal/lgr-m-18/">Liga Galega M18</a></div>
+</section>
+</main>
+<script>
+function show(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body></html>
